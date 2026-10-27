@@ -83,7 +83,7 @@
         <h3>${esc(p.fullName)}</h3>
         <p class="card-location">${icon("pin")}${esc(p.location)}</p>
         <div class="card-actions">
-          <button class="button detail-button" type="button" data-open-property="${p.id}">Ver detalles</button>
+          <a class="button detail-button" href="alojamientos/${p.id}/" data-open-property="${p.id}">Ver detalles</a>
           <a class="button" href="${p.book}" target="_blank" rel="noopener">Reservar</a>
         </div>
       </div>
@@ -209,7 +209,10 @@
 
   document.addEventListener("click", (e) => {
     const b = e.target.closest("[data-open-property]");
-    if (b) openProperty(b.dataset.openProperty, Number(b.dataset.start || 0));
+    if (b && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) {
+      e.preventDefault();
+      openProperty(b.dataset.openProperty, Number(b.dataset.start || 0));
+    }
   });
   $(".dialog-close", dialog).addEventListener("click", () => dialog.close());
   dialog.addEventListener("close", () => { document.body.style.overflow = ""; });
@@ -532,7 +535,7 @@
   let season = month >= 5 && month <= 9 ? "invierno" : "verano";
 
   const mapBtn = (it) => (it.poi ? `<button class="map-link" type="button" data-goto-poi="${esc(it.poi)}">${icon("pin")}Ver en el mapa</button>` : "");
-  const featureBody = (it) => `<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p>${mapBtn(it)}`;
+  const featureBody = (it) => `<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p><a class="text-link activity-guide" href="que-hacer/${it.slug}/">Conocer el paseo y ver fotos ${icon("arrow")}</a>${mapBtn(it)}`;
   function seasonHTML(key) {
     const s = SEASONS[key], feature = s.items[0];
     return `
@@ -544,44 +547,16 @@
         </article>
         <div class="activity-list">
           ${s.items.map((it, i) => `
-            <article class="activity-item" ${i === 0 ? 'aria-current="true"' : ""}>
+            <article class="activity-item">
               <div class="activity-photo"><img src="${asset("assets/img/" + it.img)}" alt="" loading="lazy" width="400" height="300"></div>
-              <div><h3><button type="button" class="activity-pick" data-activity="${i}">${esc(it.title)}</button></h3><p>${esc(it.text)}</p></div>
+              <div><h3><a class="activity-pick" href="que-hacer/${it.slug}/">${esc(it.title)}</a></h3><p>${esc(it.text)}</p><span class="activity-open" aria-hidden="true">Ver paseo, fotos y ubicación →</span></div>
             </article>`).join("")}
         </div>
       </div>`;
   }
-  // Elegir una actividad de la lista la muestra en grande, con un fundido entre fotos.
-  async function selectActivity(index) {
-    const item = SEASONS[season].items[index];
-    const feature = $(".activity-feature", panel), photo = $(".activity-photo", feature), body = $(".activity-feature-body", feature);
-    $$(".activity-item", panel).forEach((el, i) => el.toggleAttribute("aria-current", i === index));
-    if (feature.dataset.index === String(index)) return;
-    feature.dataset.index = String(index);
-    const next = new Image();
-    next.src = asset("assets/img/" + item.img);
-    next.alt = item.alt;
-    next.width = 1200; next.height = 900;
-    try { await next.decode(); } catch { /* se muestra igual */ }
-    if (feature.dataset.index !== String(index)) return; // llegó otro clic mientras cargaba
-    body.innerHTML = featureBody(item);
-    if (reduceMotion() || !next.animate) {
-      photo.replaceChildren(next);
-    } else {
-      next.className = "activity-next";
-      photo.append(next);
-      next.animate([{ opacity: 0, transform: "scale(1.04)" }, { opacity: 1, transform: "none" }], { duration: 420, easing: "cubic-bezier(.23,1,.32,1)" })
-        .finished.then(() => { if (photo.lastElementChild === next) { next.className = ""; photo.replaceChildren(next); } }).catch(() => {});
-      body.animate([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: 320, easing: "cubic-bezier(.23,1,.32,1)" });
-    }
-    // En pantallas angostas la foto grande queda arriba: la acercamos para que se vea el cambio.
-    const top = feature.getBoundingClientRect().top;
-    if (top < 60 || top > innerHeight * 0.5) feature.scrollIntoView({ behavior: reduceMotion() ? "auto" : "smooth", block: "start" });
-  }
   panel.addEventListener("click", (e) => {
     if (e.target.closest("[data-goto-poi]")) return;
-    const item = e.target.closest(".activity-item");
-    if (item) { selectActivity($$(".activity-item", panel).indexOf(item)); return; }
+    if (e.target.closest(".activity-item")) return;
     const photo = e.target.closest(".activity-feature .activity-photo");
     if (photo) {
       const items = SEASONS[season].items.map((it) => ({ src: asset("assets/img/" + it.img), alt: it.alt }));
@@ -782,7 +757,7 @@
   const ldScript = document.createElement("script");
   ldScript.type = "application/ld+json";
   ldScript.textContent = JSON.stringify(ld);
-  document.head.append(ldScript);
+  if (!document.getElementById("site-structured-data")) document.head.append(ldScript);
 
   /* ---------- Fotos que se revelan al entrar en pantalla ---------- */
   if ("IntersectionObserver" in window && !reduceMotion()) {

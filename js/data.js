@@ -17,21 +17,21 @@ window.PROPERTIES = [
     location: "Cerca del lago",
     locationLong: "A 20 metros de la avenida Quimey Co, con vista al lago",
     zone: "lago",
-    capacity: "Hasta 12 huéspedes · 5 habitaciones",
+    capacity: "Hasta 13 huéspedes · 5 habitaciones",
     pets: false,
     photos: 14,
     cover: 2,
     intro:
-      "Una antigua casa de montaña convertida en hostal boutique, a 20 metros de la avenida principal y con vista al lago Caviahue. Cada una de sus cinco habitaciones es distinta: conservan la madera original de la casa y combinan muebles de otras épocas con toques de diseño.",
+      "Un hostal boutique con espíritu de gran casa de montaña, cálido y lleno de detalles decorativos inspirados en la Patagonia. Ubicado en pleno centro de Caviahue, a solo 20 metros de la avenida principal y la costanera, ofrece vistas al lago y un entorno ideal para disfrutar de la naturaleza.",
     more:
-      "Hay habitaciones con baño privado con hidromasaje o con baño compartido de tres ambientes. Para familias numerosas o grupos de amigos, también se puede alquilar el hostal completo.",
+      "Cuenta con habitaciones privadas que pueden alquilarse por separado o con la opción de reservar el hostal completo, ideal para familias grandes y grupos de amigos. Dispone de cocina equipada, amplios livings, patio y parrillas, con espacios pensados para compartir, relajarse y sentirse como en casa.",
     units: [
       { name: "Habitación 1 · baño privado", guests: "2 a 4", detail: "Queen (o dos camas) y cama simple con marinera. Hidromasaje y vista al lago." },
       { name: "Habitación 2", guests: "2", detail: "Dos camas de 1½ plaza. Baño compartido." },
       { name: "Habitación 3", guests: "2", detail: "Queen o camas separadas. Baño compartido." },
       { name: "Habitación 4", guests: "3", detail: "King y cama simple, con vista al lago. Baño compartido." },
       { name: "Habitación 5", guests: "2", detail: "Queen o camas separadas. Baño compartido." },
-      { name: "Hostal completo", guests: "hasta 12", detail: "Toda la casa para tu grupo." },
+      { name: "Hostal completo", guests: "hasta 13", detail: "Toda la casa para tu grupo." },
     ],
     amenities: [
       ["wifi", "WiFi Starlink"],
@@ -99,20 +99,20 @@ window.PROPERTIES = [
     id: "ekamai",
     name: "Ekamai",
     fullName: "Ekamai Departamentos",
-    type: "Departamentos y chalet",
+    type: "Departamentos y cabañas",
     location: "Cerca del centro de ski",
     locationLong: "Junto al camino al centro de ski, con vista al volcán Copahue",
     zone: "ski",
-    capacity: "Departamentos para 4 y chalet para 6",
+    capacity: "Departamentos para 4 y cabaña para 6",
     pets: true,
     photos: 14,
     cover: 2,
     intro:
-      "Departamentos con vista al volcán Copahue, cerca del centro de ski. El chalet Ekamai Top, en dos plantas, tiene 3 dormitorios, 2 baños, un gran living con chimenea hogar y un deck con camastro frente a la montaña.",
+      "Departamentos con vista al volcán Copahue, cerca del centro de ski. La cabaña Ekamai Top, en dos plantas, tiene 3 dormitorios, 2 baños, un gran living con chimenea hogar y un deck con camastro frente a la montaña.",
     more:
       "Los departamentos White y Black, para hasta 4 personas, tienen un dormitorio con cama matrimonial y dos camas en el living. Todas las unidades tienen WiFi Starlink y cocina equipada con cafetera Nespresso.",
     units: [
-      { name: "Ekamai Top · chalet", guests: "hasta 6", detail: "3 dormitorios, 2 baños, chimenea hogar, parrilla y deck con vista a la montaña." },
+      { name: "Ekamai Top · cabaña", guests: "hasta 6", detail: "3 dormitorios, 2 baños, chimenea hogar, parrilla y deck con vista a la montaña." },
       { name: "Ekamai White", guests: "hasta 4", detail: "Dormitorio con cama matrimonial y dos camas simples en el living." },
       { name: "Ekamai Black", guests: "hasta 4", detail: "Dormitorio con cama matrimonial y dos camas en el living." },
     ],
@@ -121,8 +121,8 @@ window.PROPERTIES = [
       ["wifi", "WiFi Starlink"],
       ["coffee", "Cafetera Nespresso"],
       ["kitchen", "Cocina equipada: horno, microondas y pava eléctrica"],
-      ["fire", "Chimenea hogar (chalet)"],
-      ["grill", "Parrilla (chalet)"],
+      ["fire", "Chimenea hogar (cabaña)"],
+      ["grill", "Parrilla (cabaña)"],
       ["tv", "TV con cable"],
       ["heat", "Calefacción"],
       ["linen", "Sábanas y toallas"],
@@ -243,6 +243,48 @@ window.SEASONS = {
   },
 };
 
+// Las guías usan fotos del lugar correspondiente, conservando los créditos originales.
+// Las fotos del Parque Náutico y su logo se incorporan cuando estén disponibles.
+const ACTIVITY_EXTRAS = {
+  "Circuito de las Cuatro Cascadas": {
+    details: ["El recorrido acompaña al río Agrio entre araucarias. Podés combinar las distintas cascadas en un paseo y detenerte a disfrutar del paisaje.", "Consultanos antes de salir por el acceso y el estado del sendero durante tu estadía."],
+    extraPhotos: [["caviahue/cascada-del-agrio-neuquen-argentina-panoramio.webp", "Cascada del río Agrio"]],
+  },
+  "Salto del Agrio": {
+    details: ["El salto, las paredes de basalto y los colores de la roca forman una de las postales de los alrededores de Caviahue. La ubicación de Google Maps te permite organizar la visita desde tu alojamiento."],
+    extraPhotos: [["caviahue/salto-del-agrio-neuquen.webp", "Salto del Agrio y su olla turquesa"], ["caviahue/salto-agrio.webp", "Vista del Salto del Agrio"]],
+  },
+  "Salto del Agrio nevado": {
+    details: ["El paisaje del Salto del Agrio cambia con las estaciones. Para planificar una visita en invierno, consultá previamente el estado del acceso y las condiciones del día."],
+    extraPhotos: [["caviahue/salto-del-agrio-neuquen.webp", "El Salto del Agrio, otra vista del lugar"]],
+  },
+  "Lago Caviahue": {
+    park: true,
+    details: ["La costanera permite conocer el paisaje del lago y recorrer el pueblo a pie. Trawen y Los Basaltos son dos de nuestras opciones de alojamiento cerca de la orilla."],
+    extraPhotos: [["caviahue/costanera.webp", "La costa del lago Caviahue"], ["caviahue/lago-caviahue-from-caviahue.webp", "Araucaria sobre las rocas frente al lago Caviahue"], ["caviahue/pueblo-lago.webp", "El pueblo de Caviahue junto al lago"]],
+  },
+  "Termas de Caviahue y Copahue": {
+    additionalPois: ["Termas Caviahue"],
+    details: ["Podés consultar las ubicaciones de las termas del pueblo y de Copahue por separado. Antes de organizar la visita, verificá los servicios habilitados y sus horarios para la fecha de tu viaje."],
+    extraPhotos: [["caviahue/caviahue-from-copahue.webp", "El lago Caviahue visto desde Copahue"]],
+  },
+  "Cascada Escondida y Usina Vieja": {
+    additionalPois: ["Cascada de la Usina Vieja"],
+    details: ["Son dos paseos diferentes en los alrededores del pueblo. Abajo tenés la ubicación de cada uno para elegir tu recorrido y organizar la salida."],
+  },
+  "Laguna Escondida y Puente de Piedra": {
+    additionalPois: ["Puente de Piedra"],
+    details: ["La laguna y el puente natural son dos lugares distintos. Consultá cada ubicación en Google Maps para planificar los traslados desde Caviahue."],
+  },
+};
+Object.values(window.SEASONS).forEach(season => season.items.forEach(item => {
+  const extra = ACTIVITY_EXTRAS[item.title] || {};
+  Object.assign(item, extra);
+  item.slug = item.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  item.details = extra.details || [];
+  item.photos = [{img:item.img,alt:item.alt}, ...(extra.extraPhotos || []).map(([img,alt])=>({img,alt}))];
+}));
+
 window.GALLERY = [
   // El orden importa: arma un mosaico cuadrado (1 ancha, 1 alta, 4 chicas, 1 alta, 1 chica, 1 ancha, 3 chicas).
   { img: "caviahue/caviahue-neuquen-argentina-panoramio.webp", alt: "Volcán Copahue nevado reflejado en el lago" },
@@ -321,7 +363,7 @@ window.FAQ = [
   },
   {
     q: "¿Para cuántas personas son?",
-    a: "Hay opciones para parejas, familias y grupos: departamentos para 3, 4 y 5 personas en La Maison y Los Basaltos, departamentos para 4 y un chalet para 6 en Ekamai, y en Trawen habitaciones de 2 a 4 personas o el hostal completo para hasta 12.",
+    a: "Hay opciones para parejas, familias y grupos: departamentos para 3, 4 y 5 personas en La Maison y Los Basaltos, departamentos para 4 y una cabaña para 6 en Ekamai, y en Trawen habitaciones de 2 a 4 personas o el hostal completo para hasta 13.",
   },
   {
     q: "¿Cómo reservo?",
