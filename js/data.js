@@ -197,7 +197,7 @@ window.POIS = [
   { name: "Laguna Escondida", cat: "naturaleza", coords: [-37.8695358, -71.0623042], link: "https://maps.app.goo.gl/QJxV8eErfQ6g7fGb8", activity: "laguna" },
   { name: "Sendero Cascada Escondida", cat: "naturaleza", coords: [-37.8610796, -71.0697168], link: "https://maps.app.goo.gl/a18EHamJphAW6nNUA", activity: "escondida" },
   { name: "Cascada de la Usina Vieja", cat: "naturaleza", coords: [-37.857495, -71.0577945], link: "https://maps.app.goo.gl/tRzXaHsfUyDZTgYf9", activity: "usina" },
-  { name: "Circuito de las Cuatro Cascadas", cat: "naturaleza", coords: [-37.881232, -71.0612608], link: "https://maps.app.goo.gl/1B4onTek7i22C8n9A", activity: "cascadas" },
+  { name: "Cascadas del Agrio", cat: "naturaleza", coords: [-37.881232, -71.0612608], link: "https://maps.app.goo.gl/1B4onTek7i22C8n9A", activity: "cascadas" },
   { name: "Puente de Piedra", cat: "naturaleza", coords: [-37.8849963, -71.0130383], link: "https://maps.app.goo.gl/VC7a7XEgCUd3phtUA", activity: "puente" },
   { name: "Salto del Agrio", cat: "naturaleza", coords: [-37.8095395, -70.9260174], link: "https://maps.app.goo.gl/SGHn6LkQX6zZXeTm8", activity: "agrio" },
   { name: "Copahue y sus termas", cat: "naturaleza", coords: [-37.8189661, -71.0987509], link: "https://maps.app.goo.gl/soRboLUd7xqh9pfm6", activity: "copahue" },
@@ -233,48 +233,92 @@ window.SEASONS = {
     months: "Diciembre a marzo",
     lead: "Días largos, cascadas, lagunas y termas. El verano en Caviahue es para caminar, nadar y mirar lejos.",
     items: [
-      { title: "Circuito de las Cuatro Cascadas", text: "Un sendero junto al río Agrio que une cascadas como la Cabellera de la Virgen, la Culebra y el Gigante.", img: "caviahue/cabellera-de-la-virgen.webp", alt: "Cascada Cabellera de la Virgen", poi: "Circuito de las Cuatro Cascadas" },
-      { title: "Salto del Agrio", text: "Una cascada que cae sobre paredes de basalto y piedras teñidas de ocre. Con sol, el arcoíris es casi seguro.", img: "caviahue/arco-iris-en-salto-del-agrio.webp", alt: "Arcoíris en el Salto del Agrio", poi: "Salto del Agrio" },
-      { title: "Lago Caviahue", text: "Kayak, paddle y caminatas por la costanera. La orilla está a pasos de Trawen y Los Basaltos.", img: "caviahue/hermoso-lago-caviahue.webp", alt: "Lago Caviahue en un día de verano", poi: "Costanera del lago" },
-      { title: "Termas de Caviahue y Copahue", text: "Las termas del pueblo y, a unos 18 km, la villa termal de Copahue con sus lagunas y fumarolas.", img: "caviahue/termas-de-copahue-neuquen.webp", alt: "Termas de Copahue con la villa al fondo", poi: "Copahue y sus termas" },
-      { title: "Cascada Escondida y Usina Vieja", text: "Dos senderos cortos que salen del pueblo entre araucarias y terminan en cascadas.", img: "caviahue/imagen-pehuen.webp", alt: "Pasarela de madera entre araucarias", poi: "Sendero Cascada Escondida" },
-      { title: "Laguna Escondida y Puente de Piedra", text: "Una laguna a pocos minutos del centro y un puente natural de roca sobre el río, ideales para una tarde.", img: "caviahue/tierra-de-pehuenes.webp", alt: "Araucarias junto al lago con montañas al fondo", poi: "Laguna Escondida" },
+      { title: "Lago Caviahue", text: "Lancha, wakeboard, kayak y paddle en el Parque Náutico, o una caminata por la costanera. La orilla está a pasos de Trawen y Los Basaltos.", img: "caviahue/lago-wakeboard-pueblo.webp", alt: "Lancha y wakeboard en el lago, con el pueblo y el volcán Copahue de fondo", poi: "Costanera del lago" },
+      { title: "Salto del Agrio", text: "Una cascada que cae sobre paredes de basalto y piedras teñidas de ocre. Con sol, el arcoíris es casi seguro.", img: "caviahue/agrio-frente.webp", alt: "Salto del Agrio de frente, con la olla turquesa y las piedras naranjas", poi: "Salto del Agrio" },
+      { title: "Cascadas del Agrio", text: "Un sendero junto al río Agrio que une varias cascadas entre araucarias, con ollas de agua turquesa.", img: "caviahue/cascadas-araucarias.webp", alt: "Cascada del río Agrio con araucarias en lo alto", poi: "Cascadas del Agrio" },
+      { title: "Termas de Copahue", text: "A unos 18 km del pueblo, la villa termal de Copahue con sus piletas, lagunas y fumarolas.", img: "caviahue/copahue-vapor.webp", alt: "Pileta termal de Copahue con vapor y la montaña de fondo", poi: "Copahue y sus termas" },
+      { title: "Cascada Escondida", text: "Un sendero corto que sale del pueblo entre araucarias y termina al pie de una cascada.", img: "caviahue/escondida-cartel.webp", alt: "La Cascada Escondida vista entre araucarias, con el cartel del sendero", poi: "Sendero Cascada Escondida" },
+      { title: "Cascada de la Usina", text: "Una caminata corta desde el pueblo hasta una cascada que cae sobre una pared de basalto.", img: "caviahue/usina-otono.webp", alt: "Vista aérea de la Cascada de la Usina en otoño", poi: "Cascada de la Usina Vieja" },
+      { title: "Laguna Escondida", text: "Una laguna rodeada de araucarias a pocos minutos del centro, ideal para una tarde tranquila.", img: "caviahue/laguna-reflejo.webp", alt: "Laguna Escondida con araucarias reflejadas en el agua", poi: "Laguna Escondida" },
+      { title: "Puente de Piedra", text: "Un arco natural de roca volcánica sobre aguas turquesas, cerca del pueblo.", img: "caviahue/puente-arriba.webp", alt: "El Puente de Piedra visto desde arriba, con el agua turquesa debajo", poi: "Puente de Piedra" },
     ],
   },
 };
 
-// Las guías usan fotos del lugar correspondiente, conservando los créditos originales.
-// Las fotos del Parque Náutico y su logo se incorporan cuando estén disponibles.
+// Las guías usan fotos del lugar correspondiente: las de verano son propias; las de Wikimedia conservan sus créditos.
+// "park" agrega el bloque del Parque Náutico (logo, texto y actividades) a la guía del lago.
 const ACTIVITY_EXTRAS = {
-  "Circuito de las Cuatro Cascadas": {
-    details: ["El recorrido acompaña al río Agrio entre araucarias. Podés combinar las distintas cascadas en un paseo y detenerte a disfrutar del paisaje.", "Consultanos antes de salir por el acceso y el estado del sendero durante tu estadía."],
-    extraPhotos: [["caviahue/cascada-del-agrio-neuquen-argentina-panoramio.webp", "Cascada del río Agrio"]],
-  },
-  "Salto del Agrio": {
-    details: ["El salto, las paredes de basalto y los colores de la roca forman una de las postales de los alrededores de Caviahue. La ubicación de Google Maps te permite organizar la visita desde tu alojamiento."],
-    extraPhotos: [["caviahue/salto-del-agrio-neuquen.webp", "Salto del Agrio y su olla turquesa"], ["caviahue/salto-agrio.webp", "Vista del Salto del Agrio"]],
-  },
   "Salto del Agrio nevado": {
     details: ["El paisaje del Salto del Agrio cambia con las estaciones. Para planificar una visita en invierno, consultá previamente el estado del acceso y las condiciones del día."],
     extraPhotos: [["caviahue/salto-del-agrio-neuquen.webp", "El Salto del Agrio, otra vista del lugar"]],
   },
   "Lago Caviahue": {
-    park: true,
-    details: ["La costanera permite conocer el paisaje del lago y recorrer el pueblo a pie. Trawen y Los Basaltos son dos de nuestras opciones de alojamiento cerca de la orilla."],
-    extraPhotos: [["caviahue/costanera.webp", "La costa del lago Caviahue"], ["caviahue/lago-caviahue-from-caviahue.webp", "Araucaria sobre las rocas frente al lago Caviahue"], ["caviahue/pueblo-lago.webp", "El pueblo de Caviahue junto al lago"]],
+    park: {
+      logo: "caviahue/parque-nautico-logo.webp",
+      title: "Parque Náutico Caviahue",
+      text: "Nuestro parque náutico en el lago, con equipos y salidas para disfrutar del agua en familia o con amigos.",
+      activities: ["Paseos en lancha", "Wakeboard", "Kayak", "Paddle"],
+    },
+    details: ["El lago rodea al pueblo y es el corazón del verano en Caviahue: aguas turquesas, costas de araucarias y el volcán Copahue de fondo. Se puede recorrer a pie por la costanera, tomar sol en la playa del pueblo o salir al agua."],
+    extraPhotos: [
+      ["caviahue/lago-wakeboard-arriba.webp", "Wakeboard detrás de la lancha, visto desde arriba"],
+      ["caviahue/nautico-kayak.webp", "Kayak frente al pueblo de Caviahue"],
+      ["caviahue/lago-paddle.webp", "Paddle en el lago, con araucarias en la costa"],
+      ["caviahue/nautico-lancha-araucarias.webp", "Paseo en lancha junto a una costa de araucarias"],
+      ["caviahue/lago-wakeboard-costanera.webp", "Wakeboard frente a la costanera del pueblo"],
+      ["caviahue/nautico-lancha-paddle.webp", "Lancha y paddle en el lago Caviahue"],
+    ],
   },
-  "Termas de Caviahue y Copahue": {
-    additionalPois: ["Termas Caviahue"],
-    details: ["Podés consultar las ubicaciones de las termas del pueblo y de Copahue por separado. Antes de organizar la visita, verificá los servicios habilitados y sus horarios para la fecha de tu viaje."],
-    extraPhotos: [["caviahue/caviahue-from-copahue.webp", "El lago Caviahue visto desde Copahue"]],
+  "Salto del Agrio": {
+    details: ["El río Agrio cae en un anfiteatro de columnas de basalto y forma una olla de agua turquesa. Las piedras naranjas y ocres, teñidas por los minerales del río, hacen que sea una de las postales más fotografiadas de Neuquén. Hay estacionamiento y miradores junto al borde, y un sendero baja hasta la orilla."],
+    extraPhotos: [
+      ["caviahue/agrio-arcoiris.webp", "Arcoíris en la caída del Salto del Agrio"],
+      ["caviahue/agrio-rio.webp", "El río Agrio sobre lajas de colores, con el salto al fondo"],
+      ["caviahue/agrio-arbustos.webp", "El Salto del Agrio entre la vegetación"],
+      ["caviahue/agrio-arriba.webp", "Vista aérea del Salto del Agrio y el estacionamiento"],
+    ],
   },
-  "Cascada Escondida y Usina Vieja": {
-    additionalPois: ["Cascada de la Usina Vieja"],
-    details: ["Son dos paseos diferentes en los alrededores del pueblo. Abajo tenés la ubicación de cada uno para elegir tu recorrido y organizar la salida."],
+  "Cascadas del Agrio": {
+    details: ["Saliendo de Caviahue, el río Agrio baja en una serie de cascadas rodeadas de araucarias y rocas de colores. El sendero se puede hacer completo o hasta la primera cascada; en otoño los ñires se ponen rojos y naranjas.", "Consultanos antes de salir por el acceso y el estado del sendero durante tu estadía."],
+    extraPhotos: [
+      ["caviahue/cascadas-ollita.webp", "Cascada sobre una olla de agua turquesa entre rocas ocres"],
+      ["caviahue/cascadas-perro.webp", "Una de las cascadas del Agrio vista de cerca"],
+      ["caviahue/cascadas-otono.webp", "Cascada a contraluz en otoño, con araucarias y montañas nevadas"],
+    ],
   },
-  "Laguna Escondida y Puente de Piedra": {
-    additionalPois: ["Puente de Piedra"],
-    details: ["La laguna y el puente natural son dos lugares distintos. Consultá cada ubicación en Google Maps para planificar los traslados desde Caviahue."],
+  "Termas de Copahue": {
+    details: ["Copahue es una villa termal en la ladera del volcán, famosa por sus aguas, barros y vapores. Se puede pasar el día en las piletas al aire libre, recorrer las lagunas termales y ver las fumarolas que salen de la montaña.", "Antes de organizar la visita, verificá los servicios habilitados y sus horarios para la fecha de tu viaje."],
+    extraPhotos: [
+      ["caviahue/copahue-villa.webp", "Vista aérea de la villa termal de Copahue"],
+      ["caviahue/copahue-bata.webp", "Visitantes en bata junto a una pileta termal"],
+      ["caviahue/copahue-laguna.webp", "Laguna termal verde en Copahue"],
+    ],
+  },
+  "Cascada Escondida": {
+    details: ["La entrada al sendero está a pocos minutos del centro, marcada con un portal de madera. El camino sube por un bosque de araucarias y ñires siguiendo el arroyo hasta la cascada, que cae en varios saltos por un cañadón."],
+    extraPhotos: [
+      ["caviahue/escondida-araucarias.webp", "La Cascada Escondida al fondo del cañadón, entre araucarias"],
+      ["caviahue/escondida-pie.webp", "La Cascada Escondida vista desde su base"],
+      ["caviahue/escondida-entrada.webp", "Portal de madera en la entrada del sendero"],
+    ],
+  },
+  "Cascada de la Usina": {
+    details: ["Cerca del pueblo, el arroyo cae desde un borde de columnas de basalto a una olla rodeada de verde. Es un paseo ideal para hacer en familia, y en otoño la ladera se tiñe de rojos y amarillos."],
+    extraPhotos: [
+      ["caviahue/usina-frente.webp", "La Cascada de la Usina de frente"],
+      ["caviahue/usina-vertical.webp", "La Cascada de la Usina con una persona al pie"],
+    ],
+  },
+  "Laguna Escondida": {
+    details: ["Una caminata corta lleva a esta laguna de montaña, donde las araucarias se reflejan en el agua quieta. Es un buen lugar para hacer un picnic, mirar aves o simplemente descansar."],
+    extraPhotos: [["caviahue/laguna-perro.webp", "La orilla de la Laguna Escondida entre araucarias"]],
+  },
+  "Puente de Piedra": {
+    details: ["Una formación de roca volcánica que el agua y el viento fueron tallando hasta abrir un arco. Desde arriba se ve el agua turquesa a través del puente; desde abajo, el arco se recorta contra el cielo."],
+    extraPhotos: [
+      ["caviahue/puente-perro.webp", "El Puente de Piedra con la laguna y la meseta de fondo"],
+      ["caviahue/puente-contraluz.webp", "El arco del Puente de Piedra a contraluz"],
+    ],
   },
 };
 Object.values(window.SEASONS).forEach(season => season.items.forEach(item => {
@@ -291,7 +335,7 @@ window.GALLERY = [
   { img: "caviahue/salto-del-agrio-neuquen.webp", alt: "Salto del Agrio y su olla turquesa" },
   { img: "caviahue/lago-caviahue-from-caviahue.webp", alt: "Araucaria sobre las rocas frente al lago Caviahue" },
   { img: "caviahue/invierno.webp", alt: "Caviahue en invierno" },
-  { img: "caviahue/pueblo-lago.webp", alt: "El pueblo de Caviahue junto al lago" },
+  { img: "caviahue/mirador-pueblo-lago.webp", alt: "El pueblo de Caviahue y el lago desde el mirador, entre araucarias" },
   { img: "caviahue/araucarias-copahue.webp", alt: "Araucarias y el volcán Copahue" },
   { img: "caviahue/cascada-del-agrio-neuquen-argentina-panoramio.webp", alt: "Cascada del río Agrio" },
   { img: "caviahue/chegando-a-caviahue-argentina-panoramio.webp", alt: "La cordillera nevada llegando a Caviahue" },
@@ -305,7 +349,6 @@ window.CREDITS = [
   ["Volcán Copahue y lago · rodoluca", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Caviahue,_Neuqu%C3%A9n,_Argentina_-_panoramio.jpg"],
   ["Araucaria frente al lago · Balon Greyjoy", "CC0", "https://commons.wikimedia.org/wiki/File:Lago_Caviahue_from_Caviahue.jpg"],
   ["Caviahue en invierno · Elvis Boaventura", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:Caviahue_II_-_panoramio_(1).jpg"],
-  ["El pueblo junto al lago · Andarin2", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Caviahue.JPG"],
   ["Salto del Agrio · Juancruzcipo", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Salto_del_Agrio_-_Neuqu%C3%A9n.jpg"],
   ["Simetría especular · rodoluca", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Simetr%C3%ADa_especular,_Lago_Caviahue,_Neuqu%C3%A9n,_Argentina_-_panoramio.jpg"],
   ["Araucarias y el Copahue · rdjulieta, edición de MPF", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Caviahue,_Neuqu%C3%A9n.jpg"],
@@ -316,12 +359,6 @@ window.CREDITS = [
   ["Cascada del Agrio · rodoluca", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Cascada_del_Agrio,_Neuqu%C3%A9n,_Argentina_-_panoramio.jpg"],
   ["Araucarias en la nieve · Elvis Boaventura", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:Caviahue,_Argentina_-_panoramio.jpg"],
   ["Salto Agrio · Andarin2", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Salto_Agrio.JPG"],
-  ["Cabellera de la Virgen · Viajera del alba", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Cabellera_de_la_Virgen.JPG"],
-  ["Arcoíris en el Salto del Agrio · Viajera del alba", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Arco_iris_en_Salto_del_Agrio.JPG"],
-  ["Hermoso lago Caviahue · Viajera del alba", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Hermoso_Lago_Caviahue.JPG"],
-  ["Termas de Copahue · CarlosA.Barrio", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Termas_de_Copahue_Neuquen.jpg"],
-  ["Pasarela entre araucarias · Narciro23", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Imagen_pehuen.jpg"],
-  ["Tierra de pehuenes · Ayi.funes", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Tierra_de_Pehuenes.JPG"],
 ];
 
 /* Preguntas frecuentes: se muestran en la página y también se publican para Google (datos estructurados). */
@@ -337,7 +374,7 @@ window.FAQ = [
   },
   {
     q: "¿Qué hacer en Caviahue?",
-    a: "En invierno: esquí y snowboard en el centro de ski, paseos por la nieve y termas. En verano: el circuito de las Cuatro Cascadas, el Salto del Agrio, el lago, las termas de Caviahue y Copahue, y senderos como el de la Cascada Escondida.",
+    a: "En invierno: esquí y snowboard en el centro de ski, paseos por la nieve y termas. En verano: el lago y su Parque Náutico, el Salto del Agrio, las Cascadas del Agrio, las termas de Copahue y senderos como los de la Cascada Escondida, la Cascada de la Usina, la Laguna Escondida y el Puente de Piedra.",
     link: ["#que-hacer", "Ver qué hacer en invierno y en verano"],
   },
   {

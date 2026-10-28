@@ -19,7 +19,7 @@ node servidor.mjs
 
 El primer comando actualiza las páginas en `alojamientos/` y `que-hacer/`, el contenido inicial del catálogo y de las preguntas, los datos estructurados, `sitemap.xml` y `robots.txt`. Los archivos generados se incluyen en Git para que GitHub Pages los publique sin instalar dependencias. La vista previa abre en http://localhost:4173.
 
-Las galerías de las guías se configuran en `ACTIVITY_EXTRAS` dentro de `js/data.js`; los textos y las fotos deben corresponder al lugar y conservar sus créditos. Las fotos nuevas de Jeny, el logo y las actividades confirmadas del Parque Náutico están pendientes de entrega. Hasta entonces se utilizan las fotos existentes y la sección del Parque Náutico permite consultar por WhatsApp.
+Las galerías de las guías se configuran en `ACTIVITY_EXTRAS` dentro de `js/data.js`; los textos y las fotos deben corresponder al lugar y conservar sus créditos. Las guías de verano usan las fotos propias de Jeny (originales en `Material de trabajo/fotos originales/correcciones-oct`). El bloque del Parque Náutico (logo, texto y actividades) está en `park` dentro de la guía del lago; la lista de actividades es provisoria hasta que se confirme. Las direcciones viejas de guías que juntaban dos lugares redirigen a la nueva.
 
 ## Dominio y HTTPS
 

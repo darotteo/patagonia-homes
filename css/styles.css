@@ -273,9 +273,9 @@ html { scrollbar-color: #b9ad97 var(--paper); }
 .season-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
 .season-intro p { max-width: 640px; font: 400 21px/1.5 var(--serif); color: #2c3a40; }
 .season-intro span { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; color: var(--copper-deep); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
-.season-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: stretch; }
-.activity-feature { position: relative; display: flex; flex-direction: column; }
-.activity-feature .activity-photo { display: block; flex: 1 1 auto; width: 100%; min-height: 380px; padding: 0; border: 0; cursor: zoom-in; }
+.season-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.activity-feature { position: sticky; top: 96px; display: flex; flex-direction: column; }
+.activity-feature .activity-photo { display: block; aspect-ratio: 4 / 3; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
 .activity-feature .activity-photo img { position: absolute; inset: 0; }
 .activity-feature { scroll-margin-top: 96px; }
 .activity-photo { position: relative; border-radius: var(--radius); overflow: hidden; background: #d9d2c4; }
@@ -542,6 +542,12 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
 .content-location-links { margin-top: 32px; }
 .content-location-links .button { margin: 12px 0 22px; white-space: normal; text-align: center; }
 .park-note { border-block: 1px solid var(--line); margin-top: 32px; padding-bottom: 24px; }
+.park-head { display: flex; align-items: center; gap: 18px; padding-top: 24px; }
+.park-head img { flex: none; width: 96px; height: 96px; }
+.park-head h2 { margin: 0 0 6px; }
+.park-head p { color: var(--muted); }
+.park-activities { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.park-activities li { padding: 7px 12px; border-radius: 8px; background: #f0eadf; font-size: 14px; }
 .park-note .text-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; color: var(--copper-deep); text-decoration: underline; text-underline-offset: 4px; }
 .content-stay { margin-top: 72px; padding: 48px 0; border-top: 1px solid var(--line); }
 .content-stay h2 { font-size: 34px; margin-bottom: 18px; }
@@ -593,7 +599,7 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
   .hero-benefits { width: 100%; max-width: 560px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .hero-benefit + .hero-benefit { margin-top: 0; padding-top: 0; border-top: 0; }
   .season-grid { grid-template-columns: 1fr; }
-  .activity-feature .activity-photo { flex: none; aspect-ratio: 4 / 3; min-height: 0; }
+  .activity-feature { position: relative; top: auto; }
   .todo-heading { flex-direction: column; align-items: flex-start; }
   .about-layout { grid-template-columns: 1fr; gap: 24px; }
   .detail-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; height: auto; max-height: calc(100dvh - 40px); overflow-y: auto; }
