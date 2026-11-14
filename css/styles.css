@@ -102,7 +102,7 @@ html { scrollbar-color: #b9ad97 var(--paper); }
 
 /* ---------- Portada ---------- */
 .hero { position: relative; min-height: max(640px, min(100svh, 900px)); display: flex; flex-direction: column; justify-content: flex-end; background: var(--night); color: var(--on-dark); overflow: hidden; isolation: isolate; }
-.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 55%; z-index: -2; animation: hero-settle 2.2s var(--ease-out) both; }
+.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 45%; z-index: -2; animation: hero-settle 2.2s var(--ease-out) both; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background:
   linear-gradient(90deg, rgb(10 19 26 / .86) 0%, rgb(10 19 26 / .62) 38%, rgb(10 19 26 / .12) 70%, rgb(10 19 26 / .25) 100%),
   linear-gradient(0deg, rgb(10 19 26 / .78) 0%, rgb(10 19 26 / 0) 32%); }
@@ -125,6 +125,8 @@ html { scrollbar-color: #b9ad97 var(--paper); }
 .hero-benefit .i { width: 30px; height: 30px; color: var(--copper-soft); stroke-width: 1.25; margin-top: 2px; }
 .hero-benefit h2 { font: 600 13px/1.3 var(--sans); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
 .hero-benefit p { font-size: 15px; line-height: 1.55; color: var(--on-dark-muted); }
+.hero-benefit a { color: var(--on-dark); font-weight: 600; text-decoration: underline; text-decoration-color: var(--copper-soft); text-underline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .hero-benefit a:hover { color: var(--copper-soft); } }
 .hero-foot { display: flex; align-items: center; justify-content: flex-start; gap: 14px 32px; flex-wrap: wrap; padding: 18px 0 26px; border-top: 1px solid rgb(246 243 236 / .16); animation: fade-up .9s .65s var(--ease-out) both; }
 .year-round { display: inline-flex; align-items: center; gap: 12px; font: 500 15px var(--sans); color: var(--on-dark); }
 .hero-weather { position: relative; padding-left: 32px !important; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 4px; font: 500 15px var(--sans); color: var(--on-dark); font-variant-numeric: tabular-nums; }
@@ -144,7 +146,9 @@ html { scrollbar-color: #b9ad97 var(--paper); }
 .catalog .section-heading h2::after { content: ""; display: block; width: 56px; height: 1px; margin: 18px auto 0; background: var(--copper); }
 .open-all-year { display: inline-flex; align-items: center; gap: 12px; margin-top: 18px !important; padding: 8px 18px 8px 12px; border-radius: 999px; background: #efe7d8; color: #5c4627 !important; font-size: 15px !important; font-weight: 500; }
 .open-all-year .season-dial { width: 24px; height: 24px; color: var(--copper-deep); }
-.property-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+/* Flex centrado: con 5 alojamientos la última fila queda centrada (3 + 2) en vez de dejar una tarjeta huérfana. */
+.property-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+.property-grid > .property-card { flex: 0 1 calc((100% - 48px) / 3); min-width: 0; }
 .property-card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 1px 2px rgb(16 25 31 / .04); transition: box-shadow .3s ease, transform .3s var(--ease-out); }
 @media (hover: hover) and (pointer: fine) { .property-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); } .property-card:hover .card-photo img { transform: scale(1.035); } }
 .card-photo { position: relative; aspect-ratio: 4 / 3.3; overflow: hidden; background: #dcd5c7; }
@@ -501,6 +505,10 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
 /* ---------- Responsive ---------- */
 .activity-open { display: block; margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--copper-deep); }
 .activity-guide { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--copper-deep); font-weight: 600; }
+.activity-ext, .detail-more { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--copper-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.activity-ext { display: flex; margin-top: 6px; font-size: 14px; }
+.detail-more { margin-top: 16px; }
+.activity-ext .i, .detail-more .i { width: 16px; height: 16px; flex: none; }
 .guide-links { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 22px; }
 .guide-links summary { cursor: pointer; min-height: 44px; font-weight: 600; }
 .guide-links > div { display: flex; flex-wrap: wrap; gap: 8px 24px; }
@@ -576,7 +584,7 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
   .wrap { width: calc(100% - 64px); }
   .main-nav { gap: 22px; }
   .brand { width: 212px; }
-  .property-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .property-grid > .property-card { flex-basis: calc((100% - 24px) / 2); }
   .map-layout { grid-template-columns: 1fr; gap: 32px; }
   .map-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
   .map-intro h2, .map-intro > p { grid-column: 1; }
@@ -618,7 +626,7 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
   .nav-cta { display: none; }
   .weather-pill { padding: 6px 12px 6px 8px; font-size: 14px; }
   .hero { min-height: max(600px, 100svh); }
-  .hero-image { object-position: 60% 50%; }
+  .hero-image { object-position: 47% 50%; }
   .hero::after { background: linear-gradient(0deg, rgb(10 19 26 / .92) 0%, rgb(10 19 26 / .55) 55%, rgb(10 19 26 / .35) 100%); }
   .hero h1 { font-size: clamp(42px, 12vw, 56px); }
   .hero h1 .accent { font-size: .56em; }
@@ -636,7 +644,8 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
   .about-layout { padding-top: 40px; }
   .section-heading { margin-bottom: 28px; }
   .open-all-year { font-size: 14px !important; }
-  .property-grid { grid-template-columns: 1fr; gap: 20px; }
+  .property-grid { gap: 20px; }
+  .property-grid > .property-card { flex-basis: 100%; }
   .map-intro { display: block; }
   .map-filters { margin-top: 20px; }
   .map-canvas { height: 480px; border-radius: 12px; }

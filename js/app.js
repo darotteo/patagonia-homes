@@ -61,7 +61,7 @@
   }
 
   /* ---------- Alojamientos ---------- */
-  const PHOTO_PREFIX = { trawen: "trawen", "los-basaltos": "basaltos", ekamai: "ekamai", "la-maison": "maison" };
+  const PHOTO_PREFIX = { trawen: "trawen", "los-basaltos": "basaltos", "casa-8-de-abril": "abril", ekamai: "ekamai", "la-maison": "maison" };
   PROPERTIES.forEach((p) => {
     p.images = Array.from({ length: p.photos }, (_, i) => asset(`assets/img/alojamientos/${PHOTO_PREFIX[p.id]}-${String(i + 1).padStart(2, "0")}.webp`));
     // La foto de portada de la tarjeta va primero.
@@ -167,6 +167,7 @@
           <ul class="amenity-grid">
             ${p.amenities.map(([ic, label]) => `<li>${icon(ic)}${esc(label)}</li>`).join("")}
           </ul>
+          <a class="text-link detail-more" href="${p.book}" target="_blank" rel="noopener">Ver más detalles y fotos ${icon("arrow")}</a>
           <h3>Bueno saber</h3>
           <div class="detail-rules">
             <span>${icon("clock")}Check-in ${p.checkin} · Check-out ${p.checkout}</span>
@@ -229,7 +230,7 @@
     const origin = project(SITE.coordinates);
     const local = (ll) => { const [x, y] = project(ll); return [x - origin[0], y - origin[1]]; };
 
-    const LABEL_SIDE = { trawen: "right", "los-basaltos": "left", "la-maison": "right", ekamai: "top" };
+    const LABEL_SIDE = { trawen: "right", "los-basaltos": "left", "casa-8-de-abril": "left", "la-maison": "right", ekamai: "top" };
     const CAT_ICON = { alojamientos: "house", comer: "utensils", compras: "bag", naturaleza: "tree", servicios: "health" };
     const places = [
       ...PROPERTIES.map((p) => ({ kind: "lodging", id: p.id, cat: "alojamientos", name: p.name, sub: p.location, p, xy: local(p.coordinates) })),
@@ -535,7 +536,7 @@
   let season = month >= 5 && month <= 9 ? "invierno" : "verano";
 
   const mapBtn = (it) => (it.poi ? `<button class="map-link" type="button" data-goto-poi="${esc(it.poi)}">${icon("pin")}Ver en el mapa</button>` : "");
-  const featureBody = (it) => `<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p><a class="text-link activity-guide" href="que-hacer/${it.slug}/">Conocer el paseo y ver fotos ${icon("arrow")}</a>${mapBtn(it)}`;
+  const featureBody = (it) => `<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p><a class="text-link activity-guide" href="que-hacer/${it.slug}/">Conocer el paseo y ver fotos ${icon("arrow")}</a>${mapBtn(it)}${(it.links || []).map(([href, label]) => `<a class="text-link activity-ext" href="${href}" target="_blank" rel="noopener">${esc(label)} ${icon("arrow")}</a>`).join("")}`;
   function seasonHTML(key) {
     const s = SEASONS[key], feature = s.items[0];
     return `
@@ -713,7 +714,7 @@
 
   /* ---------- Reseñas ---------- */
   const stars = `<span class="stars" aria-hidden="true">${icon("star").repeat(5)}</span>`;
-  $("#reviews-list").innerHTML = PROPERTIES.map((p) => `
+  $("#reviews-list").innerHTML = PROPERTIES.filter((p) => p.reviews).map((p) => `
     <li><a class="review-link" href="${p.reviews}" target="_blank" rel="noopener">
       <img src="${p.cardImages[0]}" alt="" loading="lazy" width="64" height="64">
       <div><strong>${esc(p.name)}</strong><span>${stars}Opinar en Google</span></div>
@@ -730,7 +731,7 @@
   $("#footer-lodgings").innerHTML = PROPERTIES.map((p) => `<li><button type="button" data-open-property="${p.id}">${esc(p.fullName)}</button></li>`).join("");
 
   /* ---------- Créditos ---------- */
-  $("#credits-list").innerHTML = CREDITS.map(([who, license, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${esc(who)}</a> · ${esc(license)}</li>`).join("");
+  $("#credits-list").innerHTML = CREDITS.map(([who, license, url]) => `<li>${url ? `<a href="${url}" target="_blank" rel="noopener">${esc(who)}</a>` : esc(who)} · ${esc(license)}</li>`).join("");
 
   /* ---------- Datos para Google (alojamientos y preguntas) ---------- */
   const amenityNames = (p) => p.amenities.map(([, name]) => ({ "@type": "LocationFeatureSpecification", name, value: true }));
