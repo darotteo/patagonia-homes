@@ -100,22 +100,22 @@ window.PROPERTIES = [
   },
   {
     id: "casa-8-de-abril",
-    name: "Casa 8 de Abril",
-    fullName: "Casa 8 de Abril",
-    type: "Casa para grupos",
+    name: "Cabaña 8 de Abril",
+    fullName: "Cabaña 8 de Abril",
+    type: "Cabaña para grupos",
     location: "Sobre la avenida 8 de Abril",
     locationLong: "Sobre la avenida 8 de Abril, en el pueblo de Caviahue",
     zone: "lago",
     capacity: "Hasta 12 huéspedes · 4 dormitorios en suite",
-    pets: true,
+    pets: false,
     photos: 10,
     cover: 1,
     intro:
-      "Una casa amplia y confortable de dos plantas, ideal para familias numerosas o grupos de amigos. Tiene 4 dormitorios en suite y capacidad para hasta 12 personas.",
+      "Una cabaña amplia y confortable de dos plantas, ideal para familias numerosas o grupos de amigos. Tiene 4 dormitorios en suite y capacidad para hasta 12 personas.",
     more:
       "Cuenta con un gran living con chimenea hogar, amplio comedor y una cocina totalmente equipada con lavavajillas, microondas, cafetera Nespresso y pava eléctrica. Suma lavadero con lavarropas y calefacción por losa radiante: solo tenés que llegar y disfrutar.",
     units: [
-      { name: "Casa completa", guests: "hasta 12", detail: "Dos plantas y 4 dormitorios en suite, con 4 camas matrimoniales y 4 camas simples." },
+      { name: "Cabaña completa", guests: "hasta 12", detail: "Dos plantas y 4 dormitorios en suite, con 4 camas matrimoniales y 4 camas simples." },
     ],
     amenities: [
       ["fire", "Chimenea hogar en el living"],
@@ -132,7 +132,7 @@ window.PROPERTIES = [
     ],
     checkin: "14:00",
     checkout: "10:00",
-    // La casa se reserva desde la misma ficha de Bamo que Los Basaltos (unidad "8 de abril").
+    // La cabaña se reserva desde la misma ficha de Bamo que Los Basaltos (unidad "8 de abril").
     book: "https://soybamo.com/los-basaltos-departamentos",
     maps: "https://maps.app.goo.gl/fR3qrdmq4oR9h2i98",
     coordinates: [-37.8733737, -71.0552637],
@@ -468,7 +468,7 @@ window.FAQ = [
   },
   {
     q: "¿Cómo llego a cada alojamiento?",
-    a: "Trawen está a 20 metros de la avenida Quimey Co, frente al lago. Los Basaltos queda a dos cuadras del lago, en el centro, y la Casa 8 de Abril está sobre la avenida del mismo nombre. La Maison está en pleno centro del pueblo y Ekamai, cerca del camino al centro de ski. En el mapa de esta página cada alojamiento tiene su botón «Cómo llegar», que abre la ruta en Google Maps.",
+    a: "Trawen está a 20 metros de la avenida Quimey Co, frente al lago. Los Basaltos queda a dos cuadras del lago, en el centro, y la Cabaña 8 de Abril está sobre la avenida del mismo nombre. La Maison está en pleno centro del pueblo y Ekamai, cerca del camino al centro de ski. En el mapa de esta página cada alojamiento tiene su botón «Cómo llegar», que abre la ruta en Google Maps.",
     link: ["#mapa", "Abrir el mapa"],
   },
   {
@@ -487,7 +487,7 @@ window.FAQ = [
   },
   {
     q: "¿Aceptan mascotas?",
-    a: "Sí, en Los Basaltos, la Casa 8 de Abril, La Maison y Ekamai. Trawen no admite mascotas.",
+    a: "Sí, en Los Basaltos, La Maison y Ekamai. Trawen y la Cabaña 8 de Abril no admiten mascotas.",
   },
   {
     q: "¿Cuál es el horario de ingreso y salida?",
@@ -495,11 +495,11 @@ window.FAQ = [
   },
   {
     q: "¿Qué incluye la estadía?",
-    a: "Todos los alojamientos incluyen sábanas, toallas, calefacción, WiFi y cocina equipada (en Trawen la cocina es de uso común). Trawen, Los Basaltos y Ekamai tienen WiFi Starlink, y la Casa 8 de Abril suma lavarropas y lavavajillas. Las comodidades de cada uno están en su ficha.",
+    a: "Todos los alojamientos incluyen sábanas, toallas, calefacción, WiFi y cocina equipada (en Trawen la cocina es de uso común). Trawen, Los Basaltos y Ekamai tienen WiFi Starlink, y la Cabaña 8 de Abril suma lavarropas y lavavajillas. Las comodidades de cada uno están en su ficha.",
   },
   {
     q: "¿Para cuántas personas son?",
-    a: "Hay opciones para parejas, familias y grupos: departamentos para 3, 4 y 5 personas en La Maison y Los Basaltos, departamentos para 4 y una cabaña para 6 en Ekamai, en Trawen habitaciones de 2 a 4 personas o el hostal completo para hasta 13, y la Casa 8 de Abril, para grupos de hasta 12.",
+    a: "Hay opciones para parejas, familias y grupos: departamentos para 3, 4 y 5 personas en La Maison y Los Basaltos, departamentos para 4 y una cabaña para 6 en Ekamai, en Trawen habitaciones de 2 a 4 personas o el hostal completo para hasta 13, y la Cabaña 8 de Abril, para grupos de hasta 12.",
   },
   {
     q: "¿Cómo reservo?",

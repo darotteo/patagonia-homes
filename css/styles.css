@@ -626,7 +626,12 @@ dialog::backdrop { background: rgb(10 16 20 / .72); }
   .nav-cta { display: none; }
   .weather-pill { padding: 6px 12px 6px 8px; font-size: 14px; }
   .hero { min-height: max(600px, 100svh); }
-  .hero-image { object-position: 47% 50%; }
+  .hero-image {
+    /* Keep the full waterfall in a portrait scene instead of enlarging it to the content height. */
+    height: min(100%, clamp(420px, 68svh, 600px));
+    object-position: 47% 50%;
+    mask-image: linear-gradient(#000 72%, transparent 100%);
+  }
   .hero::after { background: linear-gradient(0deg, rgb(10 19 26 / .92) 0%, rgb(10 19 26 / .55) 55%, rgb(10 19 26 / .35) 100%); }
   .hero h1 { font-size: clamp(42px, 12vw, 56px); }
   .hero h1 .accent { font-size: .56em; }
