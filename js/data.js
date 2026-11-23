@@ -12,6 +12,8 @@ window.SITE = {
   parkMessage: "Hola, vengo de la web de Patagonia Homes y quiero consultar por las actividades del Parque Náutico.",
 };
 
+const cabinBookingUrl = "https://soybamo.com/cabanas-6-a-12-personas";
+
 window.PROPERTIES = [
   {
     id: "trawen",
@@ -132,10 +134,42 @@ window.PROPERTIES = [
     ],
     checkin: "14:00",
     checkout: "10:00",
-    // La cabaña se reserva desde la misma ficha de Bamo que Los Basaltos (unidad "8 de abril").
-    book: "https://soybamo.com/los-basaltos-departamentos",
+    book: cabinBookingUrl,
     maps: "https://maps.app.goo.gl/fR3qrdmq4oR9h2i98",
     coordinates: [-37.8733737, -71.0552637],
+  },
+  {
+    id: "cabana-antu",
+    name: "Cabaña Antú",
+    fullName: "Cabaña Antú",
+    type: "Cabaña para familias y grupos",
+    location: "Caviahue",
+    locationLong: "Caviahue, Neuquén",
+    capacity: "Hasta 6 huéspedes · 2 dormitorios · 2 baños",
+    pets: true,
+    photos: 8,
+    cover: 1,
+    intro:
+      "Disfrutá de una estadía cómoda y acogedora en Antú, una cabaña de dos plantas, totalmente equipada y con capacidad para hasta 6 personas, ideal para familias o grupos de amigos.",
+    more:
+      "En la planta baja cuenta con un dormitorio matrimonial, un baño completo con ducha, cocina equipada con horno, heladera, microondas, cafetera y pava eléctrica, y un cálido living comedor con parrilla interior y chimenea. Además, ofrece estacionamiento y un pequeño patio parquizado para disfrutar de Caviahue con comodidad e independencia.",
+    units: [
+      { name: "Cabaña completa", guests: "hasta 6", detail: "En la planta alta hay cuatro camas individuales tipo sommier y un segundo baño completo." },
+    ],
+    amenities: [
+      ["kitchen", "Cocina equipada"],
+      ["fire", "Chimenea en el living"],
+      ["grill", "Parrilla interior"],
+      ["bath", "Dos baños completos"],
+      ["tree", "Patio parquizado"],
+      ["car", "Estacionamiento"],
+      ["wifi", "WiFi"],
+      ["heat", "Calefacción"],
+      ["linen", "Sábanas y toallas"],
+    ],
+    checkin: "14:00",
+    checkout: "10:00",
+    book: cabinBookingUrl,
   },
   {
     id: "ekamai",
@@ -350,6 +384,7 @@ const ACTIVITY_EXTRAS = {
       logo: "caviahue/parque-nautico-logo.webp",
       title: "Parque Náutico Caviahue",
       text: "Nuestro parque náutico en el lago, con equipos y salidas para disfrutar del agua en familia o con amigos. También hace paseos en lancha hasta el Puente de Piedra.",
+      discount: "Todos los huéspedes de Patagonia Homes tienen un 20% de descuento en el Parque Náutico.",
       activities: ["Paseos en lancha", "Wakeboard", "Kayak", "Paddle"],
     },
     details: ["El lago rodea al pueblo y es el corazón del verano en Caviahue: aguas turquesas, costas de araucarias y el volcán Copahue de fondo. Se puede recorrer a pie por la costanera, tomar sol en la playa del pueblo o salir al agua."],
@@ -468,7 +503,7 @@ window.FAQ = [
   },
   {
     q: "¿Cómo llego a cada alojamiento?",
-    a: "Trawen está a 20 metros de la avenida Quimey Co, frente al lago. Los Basaltos queda a dos cuadras del lago, en el centro, y la Cabaña 8 de Abril está sobre la avenida del mismo nombre. La Maison está en pleno centro del pueblo y Ekamai, cerca del camino al centro de ski. En el mapa de esta página cada alojamiento tiene su botón «Cómo llegar», que abre la ruta en Google Maps.",
+    a: "Trawen está a 20 metros de la avenida Quimey Co, frente al lago. Los Basaltos queda a dos cuadras del lago, en el centro, y la Cabaña 8 de Abril está sobre la avenida del mismo nombre. La Maison está en pleno centro del pueblo y Ekamai, cerca del camino al centro de ski. Para llegar a Cabaña Antú, consultanos por WhatsApp. En el mapa de esta página, el botón «Cómo llegar» abre la ruta en Google Maps.",
     link: ["#mapa", "Abrir el mapa"],
   },
   {
@@ -487,7 +522,7 @@ window.FAQ = [
   },
   {
     q: "¿Aceptan mascotas?",
-    a: "Sí, en Los Basaltos, La Maison y Ekamai. Trawen y la Cabaña 8 de Abril no admiten mascotas.",
+    a: "Sí, en Los Basaltos, La Maison, Ekamai y Cabaña Antú. Trawen y la Cabaña 8 de Abril no admiten mascotas.",
   },
   {
     q: "¿Cuál es el horario de ingreso y salida?",
@@ -499,7 +534,7 @@ window.FAQ = [
   },
   {
     q: "¿Para cuántas personas son?",
-    a: "Hay opciones para parejas, familias y grupos: departamentos para 3, 4 y 5 personas en La Maison y Los Basaltos, departamentos para 4 y una cabaña para 6 en Ekamai, en Trawen habitaciones de 2 a 4 personas o el hostal completo para hasta 13, y la Cabaña 8 de Abril, para grupos de hasta 12.",
+    a: "Hay opciones para parejas, familias y grupos: departamentos para 3, 4 y 5 personas en La Maison y Los Basaltos, departamentos para 4 y una cabaña para 6 en Ekamai, habitaciones de 2 a 4 personas o el hostal completo para hasta 13 en Trawen, Cabaña Antú para hasta 6 y Cabaña 8 de Abril para hasta 12.",
   },
   {
     q: "¿Cómo reservo?",

@@ -61,7 +61,7 @@
   }
 
   /* ---------- Alojamientos ---------- */
-  const PHOTO_PREFIX = { trawen: "trawen", "los-basaltos": "basaltos", "casa-8-de-abril": "abril", ekamai: "ekamai", "la-maison": "maison" };
+  const PHOTO_PREFIX = { trawen: "trawen", "los-basaltos": "basaltos", "casa-8-de-abril": "abril", "cabana-antu": "antu", ekamai: "ekamai", "la-maison": "maison" };
   PROPERTIES.forEach((p) => {
     p.images = Array.from({ length: p.photos }, (_, i) => asset(`assets/img/alojamientos/${PHOTO_PREFIX[p.id]}-${String(i + 1).padStart(2, "0")}.webp`));
     // La foto de portada de la tarjeta va primero.
@@ -176,7 +176,7 @@
           <div class="detail-actions">
             <a class="button" href="${p.book}" target="_blank" rel="noopener">Reservar ${esc(p.name)}</a>
             <a class="button outline" href="${waLink(p.fullName)}" target="_blank" rel="noopener">${icon("whatsapp")}Consultar</a>
-            <button class="button outline" type="button" data-detail-map>${icon("pin")}Ver en el mapa</button>
+            ${p.coordinates ? `<button class="button outline" type="button" data-detail-map>${icon("pin")}Ver en el mapa</button>` : ""}
           </div>
         </div>
       </div>`;
@@ -184,7 +184,7 @@
     $$("[data-detail-step]", dialog).forEach((b) => b.addEventListener("click", () => setPhoto(photoIndex + Number(b.dataset.detailStep))));
     $$("[data-photo]", dialog).forEach((b) => b.addEventListener("click", () => setPhoto(Number(b.dataset.photo))));
     swipe($(".detail-stage", dialog), (step) => setPhoto(photoIndex + step));
-    $("[data-detail-map]", dialog).addEventListener("click", () => {
+    $("[data-detail-map]", dialog)?.addEventListener("click", () => {
       dialog.close();
       showOnMap({ kind: "lodging", id: p.id });
     });
@@ -233,7 +233,7 @@
     const LABEL_SIDE = { trawen: "right", "los-basaltos": "left", "casa-8-de-abril": "left", "la-maison": "right", ekamai: "top" };
     const CAT_ICON = { alojamientos: "house", comer: "utensils", compras: "bag", naturaleza: "tree", servicios: "health" };
     const places = [
-      ...PROPERTIES.map((p) => ({ kind: "lodging", id: p.id, cat: "alojamientos", name: p.name, sub: p.location, p, xy: local(p.coordinates) })),
+      ...PROPERTIES.filter((p) => p.coordinates).map((p) => ({ kind: "lodging", id: p.id, cat: "alojamientos", name: p.name, sub: p.location, p, xy: local(p.coordinates) })),
       ...POIS.map((poi, i) => ({ kind: "poi", id: `poi-${i}`, cat: poi.cat, name: poi.name, sub: POI_CATEGORIES[poi.cat].label, poi, xy: local(poi.coords) })),
     ];
     const active = new Set(Object.keys(POI_CATEGORIES));
@@ -536,7 +536,8 @@
   let season = month >= 5 && month <= 9 ? "invierno" : "verano";
 
   const mapBtn = (it) => (it.poi ? `<button class="map-link" type="button" data-goto-poi="${esc(it.poi)}">${icon("pin")}Ver en el mapa</button>` : "");
-  const featureBody = (it) => `<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p><a class="text-link activity-guide" href="que-hacer/${it.slug}/">Conocer el paseo y ver fotos ${icon("arrow")}</a>${mapBtn(it)}${(it.links || []).map(([href, label]) => `<a class="text-link activity-ext" href="${href}" target="_blank" rel="noopener">${esc(label)} ${icon("arrow")}</a>`).join("")}`;
+  const activityDescription = (it) => `<p>${esc(it.text)}</p>${it.park?.discount ? `<p class="activity-discount"><strong>${esc(it.park.discount)}</strong></p>` : ""}`;
+  const featureBody = (it) => `<h3>${esc(it.title)}</h3>${activityDescription(it)}<a class="text-link activity-guide" href="que-hacer/${it.slug}/">Conocer el paseo y ver fotos ${icon("arrow")}</a>${mapBtn(it)}${(it.links || []).map(([href, label]) => `<a class="text-link activity-ext" href="${href}" target="_blank" rel="noopener">${esc(label)} ${icon("arrow")}</a>`).join("")}`;
   function seasonHTML(key) {
     const s = SEASONS[key], feature = s.items[0];
     return `
@@ -550,7 +551,7 @@
           ${s.items.map((it, i) => `
             <article class="activity-item">
               <div class="activity-photo"><img src="${asset("assets/img/" + it.img)}" alt="" loading="lazy" width="400" height="300"></div>
-              <div><h3><a class="activity-pick" href="que-hacer/${it.slug}/">${esc(it.title)}</a></h3><p>${esc(it.text)}</p><span class="activity-open" aria-hidden="true">Ver paseo, fotos y ubicación →</span></div>
+              <div><h3><a class="activity-pick" href="que-hacer/${it.slug}/">${esc(it.title)}</a></h3>${activityDescription(it)}<span class="activity-open" aria-hidden="true">Ver paseo, fotos y ubicación →</span></div>
             </article>`).join("")}
         </div>
       </div>`;
@@ -744,7 +745,7 @@
         description: `${p.intro} ${p.more}`,
         image: new URL(p.cardImages[0], location.href).href,
         address: { "@type": "PostalAddress", addressLocality: "Caviahue", addressRegion: "Neuquén", postalCode: "8349", addressCountry: "AR" },
-        geo: { "@type": "GeoCoordinates", latitude: p.coordinates[0], longitude: p.coordinates[1] },
+        ...(p.coordinates ? { geo: { "@type": "GeoCoordinates", latitude: p.coordinates[0], longitude: p.coordinates[1] } } : {}),
         telephone: `+${SITE.whatsapp}`,
         checkinTime: p.checkin, checkoutTime: p.checkout,
         petsAllowed: p.pets,
