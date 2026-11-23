@@ -148,7 +148,7 @@ window.PROPERTIES = [
     capacity: "Hasta 6 huéspedes · 2 dormitorios · 2 baños",
     pets: true,
     photos: 8,
-    cover: 1,
+    cover: 3,
     intro:
       "Disfrutá de una estadía cómoda y acogedora en Antú, una cabaña de dos plantas, totalmente equipada y con capacidad para hasta 6 personas, ideal para familias o grupos de amigos.",
     more:
@@ -170,6 +170,8 @@ window.PROPERTIES = [
     checkin: "14:00",
     checkout: "10:00",
     book: cabinBookingUrl,
+    maps: "https://maps.app.goo.gl/qNNZGAsK7GGQtxrS6",
+    coordinates: [-37.8722447, -71.0551024],
   },
   {
     id: "ekamai",
@@ -503,7 +505,7 @@ window.FAQ = [
   },
   {
     q: "¿Cómo llego a cada alojamiento?",
-    a: "Trawen está a 20 metros de la avenida Quimey Co, frente al lago. Los Basaltos queda a dos cuadras del lago, en el centro, y la Cabaña 8 de Abril está sobre la avenida del mismo nombre. La Maison está en pleno centro del pueblo y Ekamai, cerca del camino al centro de ski. Para llegar a Cabaña Antú, consultanos por WhatsApp. En el mapa de esta página, el botón «Cómo llegar» abre la ruta en Google Maps.",
+    a: "Trawen está a 20 metros de la avenida Quimey Co, frente al lago. Los Basaltos queda a dos cuadras del lago, en el centro, y la Cabaña 8 de Abril está sobre la avenida del mismo nombre. La Maison está en pleno centro del pueblo y Ekamai, cerca del camino al centro de ski. En el mapa de esta página, el botón «Cómo llegar» abre la ruta en Google Maps.",
     link: ["#mapa", "Abrir el mapa"],
   },
   {
